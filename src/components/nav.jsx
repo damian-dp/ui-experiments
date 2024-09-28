@@ -14,9 +14,20 @@ const navItems = [
 
 export default function Nav() {
 	const [activeTab, setActiveTab] = useState(navItems[0].label);
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const containerRef = useRef(null);
 	const activeTabElementRef = useRef(null);
 	const location = useLocation();
+
+	useEffect(() => {
+		const handleResize = () => setWindowWidth(window.innerWidth);
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	const visibleNavItems = windowWidth < 680
+		? navItems.filter(item => !['Projects', 'Articles', 'About'].includes(item.label))
+		: navItems;
 
 	useEffect(() => {
 		const currentPath = location.pathname;
@@ -51,7 +62,7 @@ export default function Nav() {
 			<div className="nav-wrapper">
 				<div className="nav-link-wrapper">
 					<ul className="list">
-						{navItems.map((item, index) => (
+						{visibleNavItems.map((item, index) => (
 							<React.Fragment key={item.path}>
 								<li>
 									<Link
@@ -63,7 +74,7 @@ export default function Nav() {
 										{item.label}
 									</Link>
 								</li>
-								{item.label === "Articles" && (
+								{item.label === "Articles" && windowWidth >= 680 && (
 									<div className="separatorY navSeparator"></div>
 								)}
 							</React.Fragment>
@@ -72,7 +83,7 @@ export default function Nav() {
 
 					<div aria-hidden className="clip-path-container" ref={containerRef}>
 						<ul className="list list-overlay">
-							{navItems.map((item, index) => (
+							{visibleNavItems.map((item, index) => (
 								<React.Fragment key={item.path}>
 									<li>
 										<Link
@@ -84,7 +95,7 @@ export default function Nav() {
 											{item.label}
 										</Link>
 									</li>
-									{item.label === "Articles" && (
+									{item.label === "Articles" && windowWidth >= 680 && (
 										<div className="separatorY navSeparator"></div>
 									)}
 								</React.Fragment>

@@ -20,7 +20,7 @@ nav {
 	align-items: center;
 	font-family: var(--font-neue-montreal);
 	width: fit-content;
-    gap: 16px;
+    gap: 10px;
 
 	transition: all;
 }
