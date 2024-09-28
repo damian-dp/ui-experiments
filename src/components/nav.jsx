@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/nav.css";
-import { ThemeToggle } from './ThemeToggle';
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
 	{ label: "All", path: "/" },
@@ -48,54 +47,53 @@ export default function Nav() {
 	}, [activeTab, activeTabElementRef, containerRef]);
 
 	return (
-        <nav>
-            <div className="nav-wrapper">
-                <div className="nav-link-wrapper">
-                        <ul className="list">
-                        {navItems.map((item, index) => (
-                            <React.Fragment key={item.path}>
-                                <li>
-                                    <Link
-                                        ref={activeTab === item.label ? activeTabElementRef : null}
-                                        to={item.path}
-                                        onClick={() => setActiveTab(item.label)}
-                                        className="nav-button"
-                                    >
-                                        {item.label}
-                                    </Link>
-                                </li>
-                                {item.label === "Articles" && (
-                                    <div className="separatorY navSeparator"></div>
-                                )}
-                            </React.Fragment>
-                        ))}
-                    </ul>
+		<nav>
+			<div className="nav-wrapper">
+				<div className="nav-link-wrapper">
+					<ul className="list">
+						{navItems.map((item, index) => (
+							<React.Fragment key={item.path}>
+								<li>
+									<Link
+										ref={activeTab === item.label ? activeTabElementRef : null}
+										to={item.path}
+										onClick={() => setActiveTab(item.label)}
+										className="nav-button"
+									>
+										{item.label}
+									</Link>
+								</li>
+								{item.label === "Articles" && (
+									<div className="separatorY navSeparator"></div>
+								)}
+							</React.Fragment>
+						))}
+					</ul>
 
-                    <div aria-hidden className="clip-path-container" ref={containerRef}>
-                        <ul className="list list-overlay">
-                            {navItems.map((item, index) => (
-                                <React.Fragment key={item.path}>
-                                    <li>
-                                        <Link
-                                            to={item.path}
-                                            onClick={() => setActiveTab(item.label)}
-                                            className="nav-button-overlay nav-button"
-                                            tabIndex={-1}
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                    {item.label === "Articles" && (
-                                        <div className="separatorY navSeparator"></div>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <ThemeToggle />
-        </nav>
+					<div aria-hidden className="clip-path-container" ref={containerRef}>
+						<ul className="list list-overlay">
+							{navItems.map((item, index) => (
+								<React.Fragment key={item.path}>
+									<li>
+										<Link
+											to={item.path}
+											onClick={() => setActiveTab(item.label)}
+											className="nav-button-overlay nav-button"
+											tabIndex={-1}
+										>
+											{item.label}
+										</Link>
+									</li>
+									{item.label === "Articles" && (
+										<div className="separatorY navSeparator"></div>
+									)}
+								</React.Fragment>
+							))}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ThemeToggle />
+		</nav>
 	);
 }
-
