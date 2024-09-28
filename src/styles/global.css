@@ -1,31 +1,69 @@
-@import './fonts.css';
+@import "./fonts.css";
 
 :root {
-  color-scheme: light dark;
+	color-scheme: light dark;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-  --primary-text-color: rgb(20, 20, 20);
-	--secondary-text-color: rgb(176, 176, 176);
-	--tertiary-text-color: rgb(210, 210, 210);
+	/* Light theme variables */
+	--primary-text-color: #181818;
+	--secondary-text-color: #595959;
+	--tertiary-text-color: #c7c7c7;
 
-	--primary-background-color: rgb(255, 255, 255);
-	--secondary-background-color: rgb(251, 251, 251);
-	--tertiary-background-color: rgb(244, 244, 244);
+	--primary-background-color: white;
+	--secondary-background-color: #f6f6f6;
 
-	--border-color: #e0e0e0;
+	--border-color: #c7c7c7;
+	--separator-color: rgba(0, 0, 0, 0.15);
+
+	--brand-color-full: rgb(225, 254, 2);
+	--brand-color-light: rgba(225, 254, 2, 0.8);
+
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Dark theme variables */
+:root[data-theme="dark"] {
+	--primary-text-color: white;
+	--secondary-text-color: #787878;
+	--tertiary-text-color: #383838;
+
+	--primary-background-color: #181818;
+	--secondary-background-color: #272727;
+
+	--border-color: #c7c7c7;
+	--separator-color: rgba(255, 255, 255, 0.15);
 }
 
 body {
-  background-color: var(--primary-background-color);
-  color: var(--primary-text-color);
-  
+	background-color: var(--primary-background-color);
+	color: var(--primary-text-color);
+
 	margin: 0;
 	font-family: var(--font-geist-mono);
-  line-height: 1.5;
+	line-height: 1.5;
 	font-weight: 400;
-  font-size: .75rem;
+	font-size: 0.75rem;
+}
+
+.app {
+	height: 100vh;
+}
+
+/* For system preference */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--primary-text-color: white;
+		--secondary-text-color: #787878;
+		--tertiary-text-color: #383838;
+
+		--primary-background-color: #181818;
+		--secondary-background-color: #272727;
+
+		--border-color: #c7c7c7;
+		--separator-color: rgba(255, 255, 255, 0.15);
+	}
 }
