@@ -6,6 +6,7 @@ import BentoPage from "./pages/bentoPage";
 import { useTheme } from "./contexts/ThemeContext";
 import { useEffect } from "react";
 import ToolTipPage from "./pages/toolTipPage";
+import NotFound from "./pages/NotFound"; // Create this component
 
 function App() {
 	const { isDark } = useTheme();
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/nav" element={<NavPage />} />
 				<Route path="/bento" element={<BentoPage />} />
 				<Route path="/tooltip" element={<ToolTipPage />} />
+				<Route path="*" element={<NotFound />} /> {/* Add this line */}
 			</Routes>
 		</div>
 	);
