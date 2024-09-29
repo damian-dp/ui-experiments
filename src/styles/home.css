@@ -24,6 +24,7 @@
 	border: 1px solid #cccccc2e;
 	border-radius: 12px;
 	padding: 16px;
+	padding-bottom: 10px;
 	text-decoration: none;
 	color: #ffffff;
 	transition: box-shadow 0.3s ease;
@@ -43,8 +44,7 @@
 	font-size: 22px;
 }
 
-.arrow-icon {
-	position: absolute;
-	bottom: 16px;
-	right: 16px;
+
+.icon-wrapper {
+	margin-left: auto;
 }

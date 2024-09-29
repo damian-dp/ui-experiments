@@ -67,3 +67,39 @@ body {
 		--separator-color: rgba(255, 255, 255, 0.15);
 	}
 }
+
+.back-button-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100dvw;
+	position: fixed;
+	bottom: 30px;
+	z-index: 1000;
+}
+
+.back-button {
+	display: flex;
+	align-items: center;
+	padding: 10px 20px;
+	gap: 10px;
+	background-color: #272727a7;
+	color: rgb(176, 176, 176);
+	font-family: var(--font-geist-mono);
+	text-decoration: none;
+	font-size: 14px;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+}
+
+.back-button:hover {
+	color: white;
+	background-color: var(--secondary-background-color);
+}
+
+.back-button-icon-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: rotate(180deg);
+}
