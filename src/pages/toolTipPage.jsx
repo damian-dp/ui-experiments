@@ -1,13 +1,13 @@
-import React from 'react';
-import ToolTipMenu from '../components/toolTipMenu';
-import '../styles/toolTip.css';
+import React from "react";
+import ToolTipMenu from "../components/toolTipMenu";
+import "../styles/tooltip.css";
 
 const ToolTipPage = () => {
-    return (
-        <div className='tool-tip-page'>
-            <ToolTipMenu />
-        </div>
-    );
+	return (
+		<div className="tool-tip-page">
+			<ToolTipMenu />
+		</div>
+	);
 };
 
-export default ToolTipPage
+export default ToolTipPage;
