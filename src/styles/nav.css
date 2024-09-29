@@ -10,7 +10,7 @@ nav {
 	position: fixed;
 	position: -webkit-fixed;
 	bottom: 0px;
-    top: 0px;
+	top: 0px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
@@ -20,7 +20,7 @@ nav {
 	align-items: center;
 	font-family: var(--font-neue-montreal);
 	width: fit-content;
-    gap: 10px;
+	gap: 10px;
 
 	transition: all;
 }
@@ -146,9 +146,9 @@ ul {
 	padding: 16px;
 	box-sizing: border-box;
 	max-height: 64px;
-    max-width: 64px;
-    display: flex;
-    padding: 20px;
+	max-width: 64px;
+	display: flex;
+	padding: 20px;
 
 	border-radius: 100px;
 	border: 1px solid #0000000c;
@@ -162,6 +162,7 @@ ul {
 		rgba(255, 255, 255, 0.2);
 	-webkit-backdrop-filter: saturate(180%) blur(25px);
 	backdrop-filter: saturate(180%) blur(25px);
+	cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -191,4 +192,3 @@ ul {
 
 	border: 1px solid #ffffff0c;
 }
-

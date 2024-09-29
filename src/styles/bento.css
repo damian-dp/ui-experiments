@@ -1,0 +1,24 @@
+.bento-button {
+	user-select: none;
+	margin: 1rem 0.5rem;
+}
+
+.bento-box {
+	margin: 10px 10px 0 0;
+	height: 100px;
+	width: calc((100dvw / 3) - 52px);
+	user-select: none;
+	padding: 10px;
+    background-color: blue;
+}
+
+.bento-box.exiting,
+.bento-box.exited {
+	display: none;
+}
+
+.bento-boxes {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}

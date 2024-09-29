@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import "./styles/global.css";
 import "./styles/nav.css";
-import UILabPage from "./pages/UILabPage";
-import Nav from "./components/nav";
+import NavPage from "./pages/navPage";
+import BentoPage from "./pages/bentoPage";
 import { useTheme } from "./contexts/ThemeContext";
 import { useEffect } from "react";
+import ToolTipPage from "./pages/toolTipPage";
 
 function App() {
 	const { isDark } = useTheme();
@@ -15,9 +16,10 @@ function App() {
 
 	return (
 		<div className="app">
-			<Nav />
 			<Routes>
-				<Route path="/" element={<UILabPage />} />
+				<Route path="/nav" element={<NavPage />} />
+				<Route path="/bento" element={<BentoPage />} />
+				<Route path="/tooltip" element={<ToolTipPage />} />
 			</Routes>
 		</div>
 	);

@@ -4,12 +4,12 @@ import "../styles/nav.css";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-	{ label: "All", path: "/" },
-	{ label: "Design", path: "/design" },
-	{ label: "Development", path: "/dev" },
-	{ label: "Projects", path: "/projects" },
-	{ label: "Articles", path: "/articles" },
-	{ label: "About", path: "/about" },
+	{ label: "All", path: "#all" },
+	{ label: "Design", path: "#design" },
+	{ label: "Development", path: "#development" },
+	{ label: "Projects", path: "#projects" },
+	{ label: "Articles", path: "#articles" },
+	{ label: "About", path: "#about" },
 ];
 
 export default function Nav() {

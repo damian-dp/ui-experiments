@@ -1,0 +1,43 @@
+.tool-tip-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+}
+
+.menu-container {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: var(--secondary-background-color);
+	padding: 5px 10px;
+	border-radius: 100px;
+}
+
+.menu-icon-wrapper {
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	padding: 10px 15px;
+	transition: color 0.2s ease-in-out;
+}
+
+.menu-icon-wrapper:hover {
+	color: rgb(176, 176, 176);
+}
+
+.tooltip {
+	position: absolute;
+	top: -40px;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+	pointer-events: none;
+	transition: all 0.2s ease-out;
+	white-space: nowrap;
+}
