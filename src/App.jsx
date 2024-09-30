@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import ToolTipPage from "./pages/toolTipPage";
 import HomePage from "./pages/home";
 import TagEditorPage from "./pages/tagEditorPage";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
 	const { isDark } = useTheme();
@@ -26,6 +27,7 @@ function App() {
 				<Route path="/tageditor" element={<TagEditorPage />} />
 				<Route path="*" element={<HomePage />} />
 			</Routes>
+			<Analytics />
 		</div>
 	);
 }
