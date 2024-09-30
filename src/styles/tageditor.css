@@ -1,0 +1,164 @@
+.tag-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.016);
+    border: 1px solid rgba(255, 255, 255, 0.051);
+	padding: 25px 20px;
+	margin: 20px;
+	max-width: 500px;
+	width: 100%;
+	min-height: 30px;
+	transition: all 0.3s ease;
+	/* Remove overflow: hidden; */
+    cursor: pointer;
+}
+
+.tag-wrapper:hover {
+    border: 1px solid rgba(255, 255, 255, 0.156);
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+/* .tag-wrapper:focus-within {
+    border: 1px solid rgba(255, 255, 255, 0.156);
+    background-color: rgba(255, 255, 255, 0.025);
+} */
+
+.tag-pill {
+	background-color: var(--secondary-background-color);
+	border-radius: 100px;
+	padding: 6px 14px;
+    padding-right: 0px;
+	font-size: 14px;
+	color: var(--primary-text-color);
+	transition: all 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: left;
+	white-space: nowrap;
+	margin: 2px;
+	height: 28px;
+	box-sizing: border-box;
+	max-width: 100%;
+    cursor: pointer;
+}
+
+.tag-pill.editing {
+	padding: 0;
+	overflow: visible;
+	width: auto;
+}
+
+.tag-pill input {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	margin: 0;
+	width: 0;
+	min-width: 0;
+	max-width: calc(100% - 30px);
+	height: 100%;
+	box-sizing: border-box;
+	border-radius: 100px 0 0 100px;
+	transition: all 0.3s ease;
+    text-align: left;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.tag-pill span {
+	padding: 0 5px 0 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	min-width: 0; /* Allow shrinking */
+	overflow: visible; /* Prevent text from overflowing */
+}
+
+.tag-pill button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: var(--secondary-text-color);
+	transition: color 0.2s ease;
+	padding: 0px;
+    padding-left: 4px;
+	display: flex;
+	align-items: center;
+	height: 100%; /* Match the height of the parent */
+}
+
+.tag-wrapper input {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: var(--primary-text-color);
+	font-size: 14px;
+	width: auto;
+	flex-grow: 1;
+	flex-basis: 30px;
+    overflow: visible;
+}
+
+/* Animation classes */
+.tag-enter {
+	max-width: 0;
+	opacity: 0;
+	transform: scale(0.8);
+}
+
+.tag-enter-active {
+	max-width: 200px;
+	opacity: 1;
+	transform: scale(1);
+	transition: max-width 300ms ease-in, opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+.tag-exit {
+	max-width: 200px;
+	opacity: 1;
+	transform: scale(1);
+}
+
+.tag-exit-active {
+	max-width: 0;
+	opacity: 0;
+	transform: scale(0.8);
+	transition: max-width 300ms ease-out, opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.tag-exit-done {
+	width: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.tag-pill, .tag-pill input, .tag-pill span {
+	line-height: 1;
+}
+
+.add-tag-input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--primary-text-color);
+    font-size: 14px;
+    width: auto;
+    min-width: 60px;  /* Set minimum width to 60px */
+    flex-grow: 1 !important;
+    flex-basis: 60px !important;  /* Change flex-basis to 60px */
+    flex-shrink: 1;  /* Allow the input to shrink */
+    overflow: visible;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;  /* Add transition for width */
+    cursor: pointer;
+}
+
+.tag-wrapper:hover .add-tag-input,
+.tag-wrapper:focus-within .add-tag-input {
+    opacity: 1;
+}

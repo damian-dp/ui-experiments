@@ -7,6 +7,8 @@ import { useTheme } from "./contexts/ThemeContext";
 import { useEffect } from "react";
 import ToolTipPage from "./pages/toolTipPage";
 import HomePage from "./pages/home";
+import TagEditorPage from "./pages/tagEditorPage";
+
 function App() {
 	const { isDark } = useTheme();
 
@@ -21,6 +23,7 @@ function App() {
 				<Route path="/nav" element={<NavPage />} />
 				<Route path="/bento" element={<BentoPage />} />
 				<Route path="/tooltip" element={<ToolTipPage />} />
+				<Route path="/tageditor" element={<TagEditorPage />} />
 				<Route path="*" element={<HomePage />} />
 			</Routes>
 		</div>

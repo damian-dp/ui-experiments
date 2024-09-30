@@ -22,6 +22,7 @@ function HomePage() {
 				<Card title="Sliding Nav Selector" to="/nav" />
 				<Card title="Tooltip Menu" to="/tooltip" />
 				<Card title="Bento Cards" to="/bento" />
+				<Card title="Tag Editor" to="/tageditor" />
 			</div>
 		</div>
 	);
