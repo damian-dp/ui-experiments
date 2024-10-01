@@ -1,8 +1,14 @@
+// Import necessary dependencies from React
 import React, { useState, useRef, useEffect } from "react";
+// Import components from react-transition-group for animations
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+// Import the Xmark icon component
 import Xmark from "./icons/x-mark";
 
+// Define and export the TagEditor component
 export default function TagEditor() {
+	// State to store the list of tags
+	// useState is a hook that lets you add state to functional components
 	const [tags, setTags] = useState([
 			"Accounting",
 			"Marketing",
@@ -11,10 +17,16 @@ export default function TagEditor() {
 			"Retail",
 			"Customer Service",
 		]);
+	
+	// State to store the current input value
 	const [inputValue, setInputValue] = useState("");
+	
+	// Refs for DOM elements
+	// useRef is a hook that lets you create a mutable reference that persists across re-renders
 	const wrapperRef = useRef(null);
 	const newTagInputRef = useRef(null);
 
+	// Effect to adjust the height of the wrapper and input widths when tags change
 	useEffect(() => {
 		if (wrapperRef.current) {
 			wrapperRef.current.style.height = 'auto';
@@ -22,10 +34,12 @@ export default function TagEditor() {
 		adjustAllInputWidths();
 	}, [tags]);
 
+	// Function to handle input changes
 	const handleInputChange = (e) => {
 		setInputValue(e.target.value);
 	};
 
+	// Function to handle key presses in the input field
 	const handleInputKeyDown = (e) => {
 		if (e.key === "Enter") {
 			e.preventDefault();
@@ -36,6 +50,7 @@ export default function TagEditor() {
 		}
 	};
 
+	// Function to add a new tag
 	const addNewTag = () => {
 		const newTags = inputValue
 			.split(",")
@@ -45,6 +60,7 @@ export default function TagEditor() {
 		setInputValue("");
 	};
 
+	// Function to update an existing tag
 	const updateTag = (index, newValue) => {
 		const newTags = [...tags];
 		newTags[index] = newValue.trim();
@@ -52,16 +68,19 @@ export default function TagEditor() {
 		setTimeout(adjustAllInputWidths, 0);
 	};
 
+	// Function to remove a tag
 	const removeTag = (indexToRemove) => {
 		setTags(tags.filter((_, index) => index !== indexToRemove));
 	};
 
+	// Function to handle clicks on the wrapper
 	const handleWrapperClick = (e) => {
 		if (e.target === wrapperRef.current) {
 			newTagInputRef.current.focus();
 		}
 	};
 
+	// Function to adjust the width of an input field
 	const adjustInputWidth = (input) => {
 		const tempSpan = document.createElement('span');
 		tempSpan.style.font = window.getComputedStyle(input).font;
@@ -75,11 +94,13 @@ export default function TagEditor() {
 		input.style.width = `${Math.max(width + 18)}px`; // Ensure a minimum width of 30px
 	};
 
+	// Function to adjust the width of all input fields
 	const adjustAllInputWidths = () => {
 		const inputs = document.querySelectorAll('.tag-pill input');
 		inputs.forEach(adjustInputWidth);
 	};
 
+	// Render the TagEditor component
 	return (
 			<div className="tag-wrapper" ref={wrapperRef} onClick={handleWrapperClick}>
 				<TransitionGroup component={null}>
@@ -111,7 +132,6 @@ export default function TagEditor() {
 				<input
 					className="add-tag-input"
 					type="text"
-					// placeholder="Add a tag"
 					value={inputValue}
 					onChange={handleInputChange}
 					onKeyDown={handleInputKeyDown}
